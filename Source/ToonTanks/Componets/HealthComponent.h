@@ -26,6 +26,11 @@ private:
 public:	
 	// Sets default values for this component's properties
 	UHealthComponent();
+	
+	float GetHealth()
+	{
+		return Health;
+	}
 
 protected:
 	// Called when the game starts

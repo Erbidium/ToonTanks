@@ -4,6 +4,7 @@
 #include "PawnTank.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "ToonTanks/Componets/HealthComponent.h"
 #include "Physics/ImmediatePhysics/ImmediatePhysicsShared/ImmediatePhysicsCore.h"
 
 APawnTank::APawnTank()
@@ -21,6 +22,8 @@ void APawnTank::BeginPlay()
 	Super::BeginPlay();
 
     PlayerControllerRef = Cast<APlayerController>(GetController());
+
+    HealthComponent = FindComponentByClass<UHealthComponent>();
 }
 
 void APawnTank::HandleDestruction()
