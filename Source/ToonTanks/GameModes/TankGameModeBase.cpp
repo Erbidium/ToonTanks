@@ -41,6 +41,7 @@ void ATankGameModeBase::ActorDied(AActor* DeadActor)
 void ATankGameModeBase::HandleGameStart()
 {
 	TargetTurrets = GetTargetTurretCount();
+	StartTurretsNumber = TargetTurrets;
 	PlayerTank = Cast<APawnTank>(UGameplayStatics::GetPlayerPawn(this, 0));
 	PlayerControllerRef = Cast<APlayerControllerBase>(UGameplayStatics::GetPlayerController(this, 0));
 	

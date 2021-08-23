@@ -23,11 +23,18 @@ private:
 	
 	APawnTank* PlayerTank;
 	int32 TargetTurrets = 0;
+	int32 StartTurretsNumber = 0;
 
 	APlayerControllerBase* PlayerControllerRef;
 public:
 
 	void ActorDied(AActor* DeadActor);
+
+	UFUNCTION(BlueprintCallable)
+	int32 GetKilledTurrets()
+	{
+		return StartTurretsNumber -TargetTurrets;
+	}
 	
 protected:
 
