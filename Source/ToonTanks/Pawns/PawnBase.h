@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "ToonTanks/Componets/HealthComponent.h"
 #include "PawnBase.generated.h"
 
 class UCapsuleComponent;
 class AProjectileBase;
-class UHealthComponent;
+
 class UMatineeCameraShake;
 
 UCLASS()
@@ -27,7 +28,7 @@ private:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 	
-	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UHealthComponent* HealthComponent;
 	
 	// VARIABLES
@@ -46,6 +47,17 @@ public:
 	APawnBase();
 
 	virtual void HandleDestruction();
+
+	UFUNCTION(BlueprintCallable)
+	float GetHealth()
+	{
+		if(HealthComponent)
+		{
+			return HealthComponent->GetHealth();
+		}
+		else
+			return  0;
+	}
 
 protected:
 

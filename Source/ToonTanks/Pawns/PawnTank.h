@@ -4,12 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "PawnBase.h"
-#include "ToonTanks/Componets/HealthComponent.h"
 #include "PawnTank.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
-class UHealthComponent;
 
 UCLASS()
 class TOONTANKS_API APawnTank : public APawnBase
@@ -56,16 +54,7 @@ public:
 
 	bool GetIsPlayerAlive();
 
-	UFUNCTION(BlueprintCallable)
-	float GetTankHealth()
-	{
-		if(HealthComponent)
-		{
-			return HealthComponent->GetHealth();
-		}
-		else
-			return  0;
-	}
+	
 	
 protected:
 	// Called when the game starts or when spawned
