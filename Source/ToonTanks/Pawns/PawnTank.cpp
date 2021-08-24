@@ -9,7 +9,7 @@
 APawnTank::APawnTank()
 {
     SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
-    SpringArm->SetupAttachment(RootComponent);
+    SpringArm->SetupAttachment(TurretMesh);
 
     Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
     Camera->SetupAttachment(SpringArm);
@@ -50,11 +50,12 @@ void APawnTank::Tick(float DeltaTime)
 
     if(PlayerControllerRef)
     {
-        FHitResult TraceHitResult;
+        /*FHitResult TraceHitResult;
         PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, TraceHitResult);
         FVector HitLocation = TraceHitResult.ImpactPoint;
 
-        RotateTurret(HitLocation);
+        RotateTurret(HitLocation);*/
+        TurretMesh->AddLocalRotation(TurretRotationDirection);
     }
 }
 
@@ -65,6 +66,7 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent->BindAxis("MoveForward", this, &APawnTank::CalculateMoveInput);
     PlayerInputComponent->BindAxis("Turn", this, &APawnTank::CalculateRotateInput);
     PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);
+    PlayerInputComponent->BindAxis("TurretRotationButtons", this, &APawnTank::UpdateTurretRotation);
 }
 
 void APawnTank::CalculateMoveInput(float Value) 
@@ -87,4 +89,11 @@ void APawnTank::Move()
 void APawnTank::Rotate() 
 {
     AddActorLocalRotation(RotationDirection, true);
+}
+
+void APawnTank::UpdateTurretRotation(float Value)
+{
+    float RotateAmount = Value * RotateSpeed * GetWorld()->DeltaTimeSeconds;
+    FRotator Rotation = FRotator(0, RotateAmount, 0);
+    TurretRotationDirection = FQuat(Rotation);    
 }

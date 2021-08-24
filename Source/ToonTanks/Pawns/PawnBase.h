@@ -17,7 +17,7 @@ class TOONTANKS_API APawnBase : public APawn
 {
 	GENERATED_BODY()
 
-private:
+protected:
 	// COMPONENTS
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCapsuleComponent* CapsuleComp;

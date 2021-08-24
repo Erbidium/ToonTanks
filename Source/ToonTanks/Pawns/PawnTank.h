@@ -23,6 +23,7 @@ private:
 
 	FVector MoveDirection;
 	FQuat RotationDirection;
+	FQuat TurretRotationDirection;
 
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Movement", meta= (AllowPrivateAccess = "true"))
 	float MoveSpeed = 100.0f;
@@ -39,7 +40,7 @@ private:
 
 	void Move();
 	void Rotate();
-	
+	void UpdateTurretRotation(float Value);
 	
 public:
 
