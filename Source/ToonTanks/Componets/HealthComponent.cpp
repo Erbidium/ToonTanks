@@ -37,7 +37,6 @@ void UHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDam
 	}
 
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth);
-	FUpdateHealth().Broadcast();
 	// UE_LOG(LogTemp, Warning, TEXT("%s left %f health points"), *GetOwner()->GetName(), Health);
 
 	if(Health <= 0)

@@ -31,9 +31,14 @@ public:
 	{
 		return Health;
 	}
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateHealth);
+	/*DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateHealth);
 	UFUNCTION(BlueprintImplementableEvent)
-	void FUpdateHealth();
+	void FUpdateHealth();*/
+
+	void AddHealth(float AddedHealth)
+	{
+		Health += AddedHealth;
+	}
 
 protected:
 	// Called when the game starts
