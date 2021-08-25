@@ -46,9 +46,7 @@ void AHealthBooster::Tick(float DeltaTime)
 			{
 				CurrentHealthComponent->AddHealth(HealthPortion);
 				HealedActors++;
-				SetActorHiddenInGame(true);
-				SetActorEnableCollision(false);
-				SetActorTickEnabled(false);
+				Destroy();
 			}
 		}
 	}
