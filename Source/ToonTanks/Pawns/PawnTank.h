@@ -21,9 +21,15 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* Camera;
 
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	USceneComponent* ForcePoint;
+
 	FVector MoveDirection;
 	FQuat RotationDirection;
 	FQuat TurretRotationDirection;
+
+	float DesiredSpeed = 0;
+	float MSpeed = 100;
 
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Movement", meta= (AllowPrivateAccess = "true"))
 	float MoveSpeed = 100.0f;

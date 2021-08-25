@@ -2,7 +2,7 @@
 
 
 #include "PawnBase.h"
-#include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "ToonTanks/Actors/ProjectileBase.h"
 #include "ToonTanks/Componets/HealthComponent.h"
@@ -14,8 +14,8 @@ APawnBase::APawnBase()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
-	RootComponent = CapsuleComp;
+	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("Capsule Collider"));
+	RootComponent = BoxComp;
 
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	BaseMesh->SetupAttachment(RootComponent);

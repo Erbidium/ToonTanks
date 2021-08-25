@@ -7,7 +7,7 @@
 #include "ToonTanks/Componets/HealthComponent.h"
 #include "PawnBase.generated.h"
 
-class UCapsuleComponent;
+class UBoxComponent;
 class AProjectileBase;
 
 class UMatineeCameraShake;
@@ -19,8 +19,8 @@ class TOONTANKS_API APawnBase : public APawn
 
 protected:
 	// COMPONENTS
-	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
-	UCapsuleComponent* CapsuleComp;
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UBoxComponent* BoxComp;
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
