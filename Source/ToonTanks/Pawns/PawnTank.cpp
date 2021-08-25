@@ -109,7 +109,7 @@ void APawnTank::Move()
     DrawDebugLine(GetWorld(), ForcePoint->GetComponentLocation(), ForcePoint->GetComponentLocation() + DeltaForce,  FColor(0, 255, 0), false, 0.0f, 0.0f, 10.0f);
     DrawDebugLine(GetWorld(), ForcePoint->GetComponentLocation(), ForcePoint->GetComponentLocation() + MoveDirection,  FColor(0, 0, 255), false, 0.0f, 0.0f, 10.0f);
     BoxComp->AddForceAtLocation(DeltaForce, ForcePoint->GetComponentLocation());
-    // BoxComp->AddForceAtLocation(BoxComp->GetUpVector()*(-1)*100, ForcePoint->GetComponentLocation());
+    BoxComp->AddForceAtLocation(BoxComp->GetUpVector()*(-1)*1000, ForcePoint->GetComponentLocation());
 
     
     //float DeltaSpeed = DesiredSpeed - GetVelocity().Size();
